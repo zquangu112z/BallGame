@@ -16,7 +16,7 @@ import java.util.Random;
 import thuong.de.zquangu112z.ballgame.model.Ball;
 
 /**
- * Created by Bluerain on 8/26/15.
+ * Created by zquangu112z on 2016 Jan 23.
  */
 public class MyView extends View{
 
@@ -66,19 +66,17 @@ public class MyView extends View{
         paint.setColor(Color.WHITE);
         canvas.drawPaint(paint);
 
-
-
-//        Thay code int x = getWidth();
-//        int y = getHeight();
-//        int radius;
-//        radius = 100;
-
         //draw balls
         for (int i = 0; i < mBalls.length; i++) {
             mBalls[i].paint(canvas,paint);
 
             //tong
             ballRun();
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
 
@@ -94,13 +92,12 @@ public class MyView extends View{
 
         hitWall();
 
-//        for (Ball mBall : mBalls) {
-//            int x = mBall.getBall_x() + mBall.getBall_speed_x();
-//            mBall.setBall_x(x);
-//            int y = mBall.getBall_y() + mBall.getBall_speed_y();
-//            mBall.setBall_y(y);
-//        }
-
+        for (Ball mBall : mBalls) {
+            int x = mBall.getBall_x() + mBall.getBall_speed_x();
+            mBall.setBall_x(x);
+            int y = mBall.getBall_y() + mBall.getBall_speed_y();
+            mBall.setBall_y(y);
+        }
     }
 
     /**
